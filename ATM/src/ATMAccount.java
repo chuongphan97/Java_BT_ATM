@@ -51,8 +51,16 @@ public class ATMAccount {
     public void deposit(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Deposit transaction: ");
-        System.out.println("Please enter your money: ");
-        double amount = sc.nextDouble();
+        double amount;
+        do {
+            System.out.println("Please enter your money: ");
+            while (!sc.hasNextDouble()) {
+                System.out.println("Invalid number! Please enter your number: ");
+                sc.next();
+            }
+            amount = sc.nextDouble();
+        } while (amount <= 0);
+
         System.out.println("Successful transaction!. You was deposited " + amount+ "$ successfully");
         setBalance(balance+amount);
         System.out.println("Your balance: "+balance+"$");
@@ -78,8 +86,16 @@ public class ATMAccount {
     public void withdraw(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Withdraw transaction: ");
-        System.out.println("Please enter your money: ");
-        double amount = sc.nextDouble();
+        double amount;
+        do {
+            System.out.println("Please enter your money: ");
+            while (!sc.hasNextDouble()) {
+                System.out.println("Invalid number! Please enter your number: ");
+                sc.next();
+            }
+            amount = sc.nextDouble();
+        } while (amount <= 0);
+
         if (amount > this.getBalance()) {
             System.out.println("Transaction was unsuccessful!");
             System.out.println("Your balance: "+this.getBalance()+"$");
