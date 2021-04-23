@@ -130,12 +130,11 @@ public class ATMAccount {
 
     public void openHistory(){
         System.out.println("History transaction: ");
-        for (int i = 2; i >= 0; i--) {
+        for (int i = 0; i < 3; i++) {
             if (history[i] != null) {
-                System.out.println(3-i+". "+ history[i]);
+                System.out.println(i+1+". "+ history[i]);
             } else {
                 System.out.println("Empty!");
-                break;
             }
 
         }
